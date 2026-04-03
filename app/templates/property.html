@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0 overflow-hidden">
+        <div class="row g-0">
+            <div class="col-md-5">
+                <img src="{{ url_for('static', filename='uploads/' + property.photo) }}" class="img-fluid h-100" style="object-fit: cover;" alt="{{ property.title }}">
+            </div>
+            <div class="col-md-7 p-4">
+                <h2 class="fw-bold">{{ property.title }}</h2>
+                
+                <div class="d-flex gap-2 mb-3">
+                    <span class="badge rounded-pill bg-primary px-3 py-2">{{ property.price }}</span>
+                    <span class="badge rounded-pill bg-warning text-dark px-3 py-2">{{ property.property_type }}</span>
+                </div>
+
+                <p class="text-muted">{{ property.description }}</p>
+
+                <div class="d-flex gap-4 mb-3">
+                    <span><i class="bi bi-door-open"></i> {{ property.bedrooms }} Bedrooms</span>
+                    <span><i class="bi bi-water"></i> {{ property.bathrooms }} Bathrooms</span>
+                </div>
+
+                <p class="text-muted small mb-4"><i class="bi bi-geo-alt"></i> {{ property.location }}</p>
+
+                <button class="btn btn-info text-white px-4 py-2" style="background-color: #17a2b8;">Email Realtor</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
